@@ -95,6 +95,7 @@ footer {
 
 .appLogo {
     max-width: 400px;
+    border-radius: 10px;
 }
 
 .checkList {
@@ -111,4 +112,15 @@ footer {
 .devIcons {
     font-size: 4rem;
     padding-left: .5rem;
+}
+
+
+.even {
+    font-weight: bolder !important;
+}
+
+
+.odd {
+
+    color: red !important;
 }
