@@ -130,3 +130,7 @@ footer {
 
     color: red;
 }
+
+.curve {
+    border-radius: 10px;
+}
