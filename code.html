@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
             <div class="container-xxl">
                 <a class="navbar-brand" href="#">
-                    <img src="/img/flavicon.svg" height="40" />AppMain
+                    <img src="/img/flavicon.svg" height="40" />Range Finder
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -180,41 +180,14 @@
             </div>
             <!--Code Description-->
             <div class="col-12 col-lg-4">
-                <h3>The code description is likely not very clear and is a work in progress</h3>
                 <p>The code is structured in three functions</p>
                 <h5><code>fetchUserInput()</code></h5>
                 <p>The first function is responsible for retreiving and assigning the starting and ending value the user entered on the website into a variable we can work with. This is done via the lines of code below</p>
-                <h6><code class="language-js">let startValue = document.getElementById('startValue').value;</code></h6>
-                <h6><code class="language-js">let endValue = document.getElementById('endValue').value;</code></h6>
                 <p>The function then takes the string inputs (stored in the variables we declared above) given by the user and 'parses' or turns those strings into integers via these lines of code</p>
-                <h6><code class="language-js">startValue = parseInt(startValue);</code></h6>
-                <h6><code class="language-js">endValue = parseInt(endValue);</code></h6>
                 <p>After processing the variables containnig the user inputs into integers the function then performs a 'validation check' on the inputs given via an if condition to make sure they were successfully able to be processsed 'parsed' into integers. If say, a string with words was entered by the user and was not able to parsed into an integer the if statement will display an alert explaining that numbers were required in the input. On the other hand if the inputs were successfully processed then the if condition will call the next function while also passing the user input starting and ending numbers as parameters. It is also worth noting that we set the function call of the next function equal to the variable 'numbersArray'. To my understading this variable will become whatever is 'returned' by the called function. The code for the if statment is below. </p>
-                <h6><code class="language-js">
-                    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
-
-                    let numbersArray = generateNumbers(startValue, endValue);displayNumbers(numbersArray);</code></h6>
-                    <p>After this second function 'generateNumbers()' is called and returns the array to 'numbersArray' The third function 'displayNumbers()' will be called while the array created by the second function 'numbersArray' is passed to the third function.</p>
+                <p>After this second function 'generateNumbers()' is called and returns the array to 'numbersArray' The third function 'displayNumbers()' will be called while the array created by the second function 'numbersArray' is passed to the third function.</p>
                 <h5><code>generateNumbers()</code></h5>
                 <p>This is the second function. This function is responsible for looping through all the of the numebers inbetween the start and end number created by the user via a for loop (the for loop also includes the start and end numbers themselves). As the for loop increments throughout each number in between the start and end value it appends each value on to the end of the empty array we created called 'numbers'. Once the for loop has pushed all values on to the empty array it returns that array making the array equal to the variable we put to the left of the function call in the first function. The code for the for this function can be seen below</p>
-                <h6><code class="language-js">
-
-                    function generateNumbers(start, end) {
-
-                        let numbers = [];
-                    
-                        for(let i = start; i <= end; i++) {
-                    
-                            numbers.push(i);
-                        }
-                    
-                        return numbers;
-                    
-                    
-                    
-                    }
-                    
-                </code></h6>
                 <h5><code>displayNumbers()</code></h5>
                 <p>This function is the third function. This function is called (by the first function) when the first function receives the array from the second function. This function is responsible for utilizing a for loop to display the numbers in form of a table (which rows are customizable via modulo) on the web page and looping through all the numbers to assign even and odd numbers their respective class we made in CSS so they display differently.</p>
                 <p>First, we declare the variable 'tableBody' and set it equal to the element we gave the id "results" This is a space we designated on the html page to house our table and the content of it</p>
@@ -225,44 +198,6 @@
                 <p>Another if statment check to see if the NEXT index or the index AFTER the one we are on is divisble by 5, if it is then a closing table row tag is appended to the previous table data entry as to close one row and form the other. If you changed the number after the modulos you can customize how many data entries there are per row.</p>
                 <p>For the final touch we declare that the 'innerHTML' of the tableBody is equal to the variable tableHtml. This will display all the table rows and table data created by the for loop in the space we designated on the html page</p>
                 <p>The code for the third function can be seen below</p>
-                <h6><code class="language-js">
-                    function displayNumbers(numbersArray) {
-                        let tableBody = document.getElementById('results');
-                
-                
-                
-                        let tableHtml = "";
-                
-                        for(let i = 0; i < numbersArray.length; i++) {
-                            
-                            let value = numbersArray[i];
-                            let className = '';
-                
-                            if (value % 2 == 0) {
-                                className = 'even'
-                            } else {
-                                className = 'odd'
-                            }
-                
-                
-                            if(i % 5 == 0) {
-                                tableHtml = tableHtml + '<tr>'
-                            }
-                
-                            let tableRow = `<td class="${className}">${value}</td>`
-                
-                            tableHtml = tableHtml + tableRow;
-                
-                            if (i + 1 % 5 == 0) {
-                                tableHtml = tableHtml + '</tr>'
-                            }
-                            
-                        }
-                        
-                        tableBody.innerHTML = tableHtml;
-                
-                    }
-                </code></h6>
             </div>
         </div>
     </main>
