@@ -19,6 +19,7 @@
 
 
 
+
 /* sticky footer start */
 
 html,
@@ -134,4 +135,10 @@ footer {
 
 .curve {
     border-radius: 10px;
+}
+
+
+.tryButton {
+   background-color: #FF8B1F;
+   color: black;
 }
